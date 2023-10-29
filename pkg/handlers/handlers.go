@@ -1,10 +1,11 @@
 package handlers
 
 import (
+	"net/http"
+
 	"github.com/amitniranjan88/bookings-app/pkg/config"
 	"github.com/amitniranjan88/bookings-app/pkg/models"
 	"github.com/amitniranjan88/bookings-app/pkg/render"
-	"net/http"
 )
 
 // Repo the repository used by the handlers
@@ -48,4 +49,15 @@ func (m *Repository) About(w http.ResponseWriter, r *http.Request) {
 	render.RenderTemplate(w, "about.page.tmpl", &models.TemplateData{
 		StringMap: stringMap,
 	})
+}
+
+func (m *Repository) Deluxe(w http.ResponseWriter, r *http.Request) {
+	render.RenderTemplate(w, "deluxe.page.tmpl", &models.TemplateData{})
+}
+
+func (m *Repository) Presidential(w http.ResponseWriter, r *http.Request) {
+	render.RenderTemplate(w, "presidential.page.tmpl", &models.TemplateData{})
+}
+func (m *Repository) Reservation(w http.ResponseWriter, r *http.Request) {
+	render.RenderTemplate(w, "make-reservation.page.tmpl", &mod)
 }
